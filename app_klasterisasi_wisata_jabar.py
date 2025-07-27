@@ -164,12 +164,23 @@ if uploaded_file:
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         )
 
-        st.markdown("---")
 
-st.markdown(
-    "<p style='text-align: center; color: grey;'>"
-    "© 2025 Aplikasi Klasterisasi Wisata Kabupaten Bogor. "
-    "Dibuat oleh Donnix Afrilliando."
-    "</p>",
-    unsafe_allow_html=True
-)
+st.markdown("""
+    <style>
+    .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        color: grey;
+        text-align: center;
+        padding: 10px;
+        background-color: #f9f9f9;
+        font-size: 14px;
+    }
+    </style>
+
+    <div class="footer">
+       © 2025 Aplikasi Klasterisasi Wisata Kabupaten Bogor. "
+    "Dibuat oleh Donnix Afrilliando
+    </div>
+""", unsafe_allow_html=True)
