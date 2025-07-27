@@ -180,7 +180,7 @@ st.markdown("""
     </style>
 
     <div class="footer">
-       © 2025 Aplikasi Klasterisasi Wisata Kabupaten Bogor. "
-    "Dibuat oleh Donnix Afrilliando
+       © 2025 Aplikasi Klasterisasi Wisata Kabupaten Bogor. 
+    Dibuat oleh Donnix Afrilliando
     </div>
 """, unsafe_allow_html=True)
