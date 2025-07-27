@@ -24,7 +24,7 @@ with open("template_data_wisata.xlsx", "rb") as f:
     )
 
 # 2. ------------------- Upload Dataset dari User ---------------------
-st.subheader("📤 Upload File Dataset Anda")
+st.subheader(" Upload File Dataset Anda")
 uploaded_file = st.file_uploader("Unggah file Excel (.xlsx) sesuai template", type=["xlsx"])
 
 if uploaded_file:
@@ -79,7 +79,7 @@ if uploaded_file:
         elbow_k = range_k[np.argmin(np.diff(np.diff(inertia))) + 1]
 
         st.markdown(f"""
-        **🧠 Interpretasi Elbow:**
+        **Interpretasi Elbow:**
         Grafik Elbow menunjukkan penurunan total jarak (inertia) antar data ke pusat klaster.
         Setelah **K = {elbow_k}**, penurunan mulai melandai.
         """)
@@ -96,7 +96,7 @@ if uploaded_file:
         best_k = range_k[np.argmax(silhouette_scores)]
 
         st.markdown(f"""
-        **🧠 Interpretasi Silhouette:**
+        **Interpretasi Silhouette:**
         Skor Silhouette menunjukkan seberapa jelas antar klaster terpisah.
         Nilai tertinggi pada **K = {best_k}** menunjukkan pemisahan terbaik.
         """)
