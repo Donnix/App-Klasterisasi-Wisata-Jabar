@@ -9,7 +9,7 @@ import plotly.express as px
 from io import BytesIO
 
 st.set_page_config(page_title="Klasterisasi Jenis Wisata", layout="wide")
-st.title("📍 Klasterisasi Kecamatan Berdasarkan Jenis Wisata")
+st.title("📍 Klasterisasi Jenis Wisata berdasarkan Kecamatan di Kabupaten Bogor")
 
 # 1. ------------------- Template Dataset dari File Lokal ---------------------
 st.subheader("📂 Template Dataset")
