@@ -9,7 +9,7 @@ import plotly.express as px
 from io import BytesIO
 
 st.set_page_config(page_title="Klasterisasi Jenis Wisata", layout="wide")
-st.title("📍 Klasterisasi Jenis Wisata berdasarkan Kecamatan di Kabupaten Bogor")
+st.title("Klasterisasi Jenis Wisata berdasarkan Kecamatan di Kabupaten Bogor")
 
 # 1. ------------------- Template Dataset dari File Lokal ---------------------
 st.subheader("📂 Template Dataset")
@@ -120,6 +120,7 @@ if uploaded_file:
         df_hasil_tampil.insert(0, "No", range(1, len(df_hasil_tampil) + 1))
         st.dataframe(df_hasil_tampil, hide_index=True)
 
+       # 7. ------------------- Visualisasi 2D ---------------------
         st.subheader("📊 Visualisasi Klaster (2 Jenis Wisata Terpilih)")
         fig_2d = px.scatter(x=fitur_scaled[:, 0], y=fitur_scaled[:, 1],
                             color=df["Klaster"].astype(str),
@@ -130,6 +131,12 @@ if uploaded_file:
         fig_2d.update_traces(marker=dict(size=16))
         st.plotly_chart(fig_2d)
 
+        st.markdown("""
+        ** Interpretasi:**
+        Grafik ini menunjukkan kecamatan yang mirip dari sisi dua jenis wisata. Titik berdekatan artinya karakteristiknya serupa.
+        """)
+
+        # 8. ------------------- Visualisasi PCA ---------------------
         st.subheader("🗺️ Visualisasi Semua Jenis Wisata Terpilih (2D)")
         pca = PCA(n_components=2)
         hasil_pca = pca.fit_transform(fitur_scaled)
@@ -143,6 +150,12 @@ if uploaded_file:
                              width=900, height=600)
         fig_pca.update_traces(marker=dict(size=16))
         st.plotly_chart(fig_pca)
+
+        st.markdown("""
+        ** Interpretasi:**
+        Semua jenis wisata yang dipilih diringkas menjadi dua dimensi untuk mempermudah visualisasi.
+        Titik yang berdekatan berarti kecamatan tersebut punya profil wisata yang mirip secara keseluruhan.
+        """)
 
         st.subheader("💾 Unduh Hasil Klasterisasi")
         df_export = df[["nama_kecamatan", "Klaster"] + jenis_wisata + ["Dimensi X", "Dimensi Y"]]
