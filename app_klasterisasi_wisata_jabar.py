@@ -8,8 +8,8 @@ from sklearn.decomposition import PCA
 import plotly.express as px
 from io import BytesIO
 
-st.set_page_config(page_title="Klasterisasi Jenis Wisata", layout="wide")
-st.title("Klasterisasi Jenis Wisata berdasarkan Kecamatan di Kabupaten Bogor")
+st.set_page_config(page_title="Aplikasi Klasterisasi Jenis Wisata", layout="wide")
+st.title("Aplikasi Klasterisasi Jenis Wisata berdasarkan Kecamatan di Kabupaten Bogor")
 
 # 1. ------------------- Template Dataset dari File  ---------------------
 st.subheader("📂 Template Dataset")
@@ -40,7 +40,7 @@ if uploaded_file:
 
     df = df.dropna(subset=["nama_kecamatan"]).drop_duplicates()
     if df.drop(columns=["nama_kecamatan"]).isnull().all().all():
-        st.warning("⚠️ Data jenis wisata masih kosong. Silakan isi jumlah wisata di kolom yang tersedia.")
+        st.warning("⚠️ Data jenis wisata masih kosong. Silahkan isi jumlah wisata di kolom yang tersedia.")
         st.dataframe(df)
         st.stop()
 
@@ -141,8 +141,8 @@ if uploaded_file:
 
         st.markdown(f"""
          **Tentang Grafik Klasterisasi 2D**  
-        Grafik ini menunjukkan penyebaran kecamatan berdasarkan **dua jenis wisata yang dipilih **, yaitu **{jenis_wisata[0]}** dan **{jenis_wisata[1]}**.  
-Setiap titik merepresentasikan satu kecamatan, dan posisinya ditentukan berdasarkan jumlah tempat wisata dari dua kategori tersebut.  
+        Grafik ini menunjukkan penyebaran kecamatan berdasarkan dua jenis wisata yang dipilih, yaitu **{jenis_wisata[0]}** dan **{jenis_wisata[1]}**.  
+S       etiap titik merepresentasikan satu kecamatan, dan posisinya ditentukan berdasarkan jumlah tempat wisata dari dua kategori tersebut.  
          **Makna Warna pada Grafik**  
         Warna pada setiap titik menunjukkan **hasil klasterisasi**, yaitu kelompok kecamatan dengan karakteristik wisata yang mirip.  
         Semakin dekat dan warnanya sama, semakin mirip pula karakter jenis wisatanya.  
